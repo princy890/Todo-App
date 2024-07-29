@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <!-- https://cdnjs.com/libraries/twitter-bootstrap/5.0.0-beta1 -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
+
+  <!-- Icons: https://getbootstrap.com/docs/5.0/extend/icons/ -->
+  <!-- https://cdnjs.com/libraries/font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+  <title>Todo, App!</title>
+<style>
+  #div1{
+    background-image: url("{% static 'image.png' %}");
+    background-size: cover;
+  }
+</style>
+
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid" style="background-color: blueviolet;">
+      <a class="navbar-brand" href="#">todoapp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+          <li class="nav-item">
+            <a class="nav-link active" style="background-color: rgb(79, 26, 224);" href="{% url 'home_view' %}">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" style="background-color: rgb(79, 26, 224); " href="{% url 'create_view' %}">Add Todo</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" style="background-color: rgb(79, 26, 224); " href="{% url 'todo_list' %}">List Todo</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'reg_view' %}">Signup</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'log_view' %}">Signin</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout_view' %}">Signout</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-info" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  {% if messages %}
+  {% for i in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{i}} {{request.user}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor%}
+  {% endif %}
+
+  {% block content %}
+ 
+    
+    <div id="div1" style="width: 1130px;height: 500px;">
+      
+        <center> 
+          <h1 style="color:brown"><i>welcome</i></h1>
+        </center>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis enim, voluptas provident voluptates autem quas placeat excepturi dolorum nulla ex suscipit cupiditate! Veniam consectetur voluptas recusandae aspernatur doloremque voluptates animi.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aspernatur minus tempora deserunt quis tempore porro sed, ipsum eveniet nostrum voluptas, necessitatibus blanditiis unde deleniti nesciunt quaerat qui vero omnis.
+      </p>
+      <!-- <img src="{% static 'image.png' %}" alt="no image" height="1000px" width="1000px">  -->
+    </div>
+
+  
+  {% endblock %}
+  <div class="bg-dark p-3 text-center text-light">
+    <span>&copy;All rights reserved</span>
+  </div>
+
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+ 
+   
+
+</body>
+
+</html>
